@@ -1,0 +1,27 @@
+<?php
+/**
+ * @var \Pledg\PledgPaymentGateway\Block\Checkout\Pay $block
+ */
+?>
+<div id="container_pledg_form"></div>
+<button id="trigger_pledg_form" style="display: none;"></button>
+<script>
+    let button = document.querySelector("#trigger_pledg_form");
+
+    new Pledg(button, {
+        ...<?= json_encode($block->getPledgData()); ?>,
+        ...{
+            containerElement: document.querySelector('#container_pledg_form'),
+            onSuccess: function () {
+                window.location.replace('<?php echo $this->getUrl('checkout/onepage/success'); ?>');
+            },
+            onError: function (error) {
+                window.location.replace('<?php echo $this->getUrl('pledgbysofinco/checkout/cancel');?>' + '?pledg_error=' + encodeURI(error.message));
+            },
+            onCancel: function () {
+                window.location.replace('<?php echo $this->getUrl('pledgbysofinco/checkout/cancel');?>');
+            },
+        }
+    });
+    button.click();
+</script>

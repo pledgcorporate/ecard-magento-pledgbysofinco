@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="checkout" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Pledg_PledgPaymentGateway::css/pledg.css" />
+    </head>
+    <body>
+        <referenceBlock name="head.additional">
+            <block template="head.phtml" class="Pledg\PledgPaymentGateway\Block\Head" name="pledg_payment_gateway_block_head" />
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Pledg\PledgPaymentGateway\Block\Checkout\Pay" name="pledg_payment_gateway_checkout_pay" template="Pledg_PledgPaymentGateway::checkout/pay.phtml" cacheable="false"/>
+        </referenceContainer>
+    </body>
+</page>

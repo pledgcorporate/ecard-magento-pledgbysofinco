@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="steps" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="billing-step" xsi:type="array">
+                                            <item name="component" xsi:type="string">uiComponent</item>
+                                            <item name="children" xsi:type="array">
+                                                <item name="payment" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="renders" xsi:type="array">
+                                                            <!-- merge payment method renders here -->
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="pledg_gateway_1" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Pledg_PledgPaymentGateway/js/view/payment/pledg_gateway_1</item>
+                                                                    <item name="methods" xsi:type="array">
+                                                                        <item name="pledg_gateway_1" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="pledg_gateway_2" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Pledg_PledgPaymentGateway/js/view/payment/pledg_gateway_2</item>
+                                                                    <item name="methods" xsi:type="array">
+                                                                        <item name="pledg_gateway_2" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="pledg_gateway_3" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Pledg_PledgPaymentGateway/js/view/payment/pledg_gateway_3</item>
+                                                                    <item name="methods" xsi:type="array">
+                                                                        <item name="pledg_gateway_3" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="pledg_gateway_4" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Pledg_PledgPaymentGateway/js/view/payment/pledg_gateway_4</item>
+                                                                    <item name="methods" xsi:type="array">
+                                                                        <item name="pledg_gateway_4" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="pledg_gateway_5" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Pledg_PledgPaymentGateway/js/view/payment/pledg_gateway_5</item>
+                                                                    <item name="methods" xsi:type="array">
+                                                                        <item name="pledg_gateway_5" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="pledg_gateway_6" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Pledg_PledgPaymentGateway/js/view/payment/pledg_gateway_6</item>
+                                                                    <item name="methods" xsi:type="array">
+                                                                        <item name="pledg_gateway_6" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="pledg_gateway_7" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Pledg_PledgPaymentGateway/js/view/payment/pledg_gateway_7</item>
+                                                                    <item name="methods" xsi:type="array">
+                                                                        <item name="pledg_gateway_7" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="pledg_gateway_8" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Pledg_PledgPaymentGateway/js/view/payment/pledg_gateway_8</item>
+                                                                    <item name="methods" xsi:type="array">
+                                                                        <item name="pledg_gateway_8" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="pledg_gateway_9" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Pledg_PledgPaymentGateway/js/view/payment/pledg_gateway_9</item>
+                                                                    <item name="methods" xsi:type="array">
+                                                                        <item name="pledg_gateway_9" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="pledg_gateway_10" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Pledg_PledgPaymentGateway/js/view/payment/pledg_gateway_10</item>
+                                                                    <item name="methods" xsi:type="array">
+                                                                        <item name="pledg_gateway_10" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

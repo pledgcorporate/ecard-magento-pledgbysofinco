@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp/etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="script-src">
+            <values>
+                <value id="pledg" type="host">s3-eu-west-1.amazonaws.com</value>
+                <value id="pledg-api" type="host">*.back.ecard.pledg.co</value>
+                <value id="pledg-frame" type="host">*.front.ecard.pledg.co</value>
+            </values>
+        </policy>
+        <policy id="connect-src">
+            <values>
+                <value id="pledg" type="host">s3-eu-west-1.amazonaws.com</value>
+                <value id="pledg-api" type="host">*.back.ecard.pledg.co</value>
+                <value id="pledg-frame" type="host">*.front.ecard.pledg.co</value>
+            </values>
+        </policy>
+        <policy id="frame-src">
+            <values>
+                <value id="pledg" type="host">s3-eu-west-1.amazonaws.com</value>
+                <value id="pledg-api" type="host">*.back.ecard.pledg.co</value>
+                <value id="pledg-frame" type="host">*.front.ecard.pledg.co</value>
+                <value id="pledg-frame-bis" type="host">front.ecard.pledg.co</value>
+                <value id="pledg-frame-stripe" type="host">hooks.stripe.com</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

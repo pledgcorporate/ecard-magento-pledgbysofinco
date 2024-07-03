@@ -1,0 +1,419 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Payment Method Facade configuration -->
+    <virtualType name="Pledg1PaymentGatewayFacade" type="Magento\Payment\Model\Method\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config1::CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Pledg\PledgPaymentGateway\Block\Info</argument>
+            <argument name="valueHandlerPool" xsi:type="object">Pledg1PaymentGatewayValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">Pledg1PaymentGatewayValidatorPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg2PaymentGatewayFacade" type="Magento\Payment\Model\Method\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config2::CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Pledg\PledgPaymentGateway\Block\Info</argument>
+            <argument name="valueHandlerPool" xsi:type="object">Pledg2PaymentGatewayValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">Pledg2PaymentGatewayValidatorPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg3PaymentGatewayFacade" type="Magento\Payment\Model\Method\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config3::CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Pledg\PledgPaymentGateway\Block\Info</argument>
+            <argument name="valueHandlerPool" xsi:type="object">Pledg3PaymentGatewayValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">Pledg3PaymentGatewayValidatorPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg4PaymentGatewayFacade" type="Magento\Payment\Model\Method\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config4::CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Pledg\PledgPaymentGateway\Block\Info</argument>
+            <argument name="valueHandlerPool" xsi:type="object">Pledg4PaymentGatewayValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">Pledg4PaymentGatewayValidatorPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg5PaymentGatewayFacade" type="Magento\Payment\Model\Method\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config5::CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Pledg\PledgPaymentGateway\Block\Info</argument>
+            <argument name="valueHandlerPool" xsi:type="object">Pledg5PaymentGatewayValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">Pledg5PaymentGatewayValidatorPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg6PaymentGatewayFacade" type="Magento\Payment\Model\Method\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config6::CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Pledg\PledgPaymentGateway\Block\Info</argument>
+            <argument name="valueHandlerPool" xsi:type="object">Pledg6PaymentGatewayValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">Pledg6PaymentGatewayValidatorPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg7PaymentGatewayFacade" type="Magento\Payment\Model\Method\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config7::CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Pledg\PledgPaymentGateway\Block\Info</argument>
+            <argument name="valueHandlerPool" xsi:type="object">Pledg7PaymentGatewayValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">Pledg7PaymentGatewayValidatorPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg8PaymentGatewayFacade" type="Magento\Payment\Model\Method\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config8::CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Pledg\PledgPaymentGateway\Block\Info</argument>
+            <argument name="valueHandlerPool" xsi:type="object">Pledg8PaymentGatewayValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">Pledg8PaymentGatewayValidatorPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg9PaymentGatewayFacade" type="Magento\Payment\Model\Method\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config9::CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Pledg\PledgPaymentGateway\Block\Info</argument>
+            <argument name="valueHandlerPool" xsi:type="object">Pledg9PaymentGatewayValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">Pledg9PaymentGatewayValidatorPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg10PaymentGatewayFacade" type="Magento\Payment\Model\Method\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config10::CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Pledg\PledgPaymentGateway\Block\Info</argument>
+            <argument name="valueHandlerPool" xsi:type="object">Pledg10PaymentGatewayValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">Pledg10PaymentGatewayValidatorPool</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Configuration readers -->
+    <type name="Pledg\PledgPaymentGateway\Gateway\Config\Config1">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config1::CODE</argument>
+        </arguments>
+    </type>
+    <type name="Pledg\PledgPaymentGateway\Gateway\Config\Config2">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config2::CODE</argument>
+        </arguments>
+    </type>
+    <type name="Pledg\PledgPaymentGateway\Gateway\Config\Config3">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config3::CODE</argument>
+        </arguments>
+    </type>
+    <type name="Pledg\PledgPaymentGateway\Gateway\Config\Config4">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config4::CODE</argument>
+        </arguments>
+    </type>
+    <type name="Pledg\PledgPaymentGateway\Gateway\Config\Config5">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config5::CODE</argument>
+        </arguments>
+    </type>
+    <type name="Pledg\PledgPaymentGateway\Gateway\Config\Config6">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config6::CODE</argument>
+        </arguments>
+    </type>
+    <type name="Pledg\PledgPaymentGateway\Gateway\Config\Config7">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config7::CODE</argument>
+        </arguments>
+    </type>
+    <type name="Pledg\PledgPaymentGateway\Gateway\Config\Config8">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config8::CODE</argument>
+        </arguments>
+    </type>
+    <type name="Pledg\PledgPaymentGateway\Gateway\Config\Config9">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config9::CODE</argument>
+        </arguments>
+    </type>
+    <type name="Pledg\PledgPaymentGateway\Gateway\Config\Config10">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Pledg\PledgPaymentGateway\Gateway\Config\Config10::CODE</argument>
+        </arguments>
+    </type>
+
+    <!-- Value handlers infrastructure -->
+    <virtualType name="Pledg1PaymentGatewayValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">Pledg1PaymentGatewayConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg1PaymentGatewayConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config1</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg2PaymentGatewayValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">Pledg2PaymentGatewayConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg2PaymentGatewayConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config2</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg3PaymentGatewayValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">Pledg3PaymentGatewayConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg3PaymentGatewayConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config3</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg4PaymentGatewayValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">Pledg4PaymentGatewayConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg4PaymentGatewayConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config4</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg5PaymentGatewayValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">Pledg5PaymentGatewayConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg5PaymentGatewayConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config5</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg6PaymentGatewayValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">Pledg6PaymentGatewayConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg6PaymentGatewayConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config6</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg7PaymentGatewayValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">Pledg7PaymentGatewayConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg7PaymentGatewayConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config7</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg8PaymentGatewayValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">Pledg8PaymentGatewayConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg8PaymentGatewayConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config8</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg9PaymentGatewayValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">Pledg9PaymentGatewayConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg9PaymentGatewayConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config9</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg10PaymentGatewayValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">Pledg10PaymentGatewayConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg10PaymentGatewayConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config10</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Payment method validators -->
+    <virtualType name="Pledg1PaymentGatewayCountryValidator" type="Magento\Payment\Gateway\Validator\CountryValidator">
+        <arguments>
+            <argument name="config" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config1</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg1PaymentGatewayValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="country" xsi:type="string">Pledg1PaymentGatewayCountryValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg2PaymentGatewayCountryValidator" type="Magento\Payment\Gateway\Validator\CountryValidator">
+        <arguments>
+            <argument name="config" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config2</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg2PaymentGatewayValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="country" xsi:type="string">Pledg2PaymentGatewayCountryValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg3PaymentGatewayCountryValidator" type="Magento\Payment\Gateway\Validator\CountryValidator">
+        <arguments>
+            <argument name="config" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config3</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg3PaymentGatewayValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="country" xsi:type="string">Pledg3PaymentGatewayCountryValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg4PaymentGatewayCountryValidator" type="Magento\Payment\Gateway\Validator\CountryValidator">
+        <arguments>
+            <argument name="config" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config4</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg4PaymentGatewayValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="country" xsi:type="string">Pledg4PaymentGatewayCountryValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg5PaymentGatewayCountryValidator" type="Magento\Payment\Gateway\Validator\CountryValidator">
+        <arguments>
+            <argument name="config" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config5</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg5PaymentGatewayValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="country" xsi:type="string">Pledg5PaymentGatewayCountryValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg6PaymentGatewayCountryValidator" type="Magento\Payment\Gateway\Validator\CountryValidator">
+        <arguments>
+            <argument name="config" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config6</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg6PaymentGatewayValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="country" xsi:type="string">Pledg6PaymentGatewayCountryValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg7PaymentGatewayCountryValidator" type="Magento\Payment\Gateway\Validator\CountryValidator">
+        <arguments>
+            <argument name="config" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config7</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg7PaymentGatewayValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="country" xsi:type="string">Pledg7PaymentGatewayCountryValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg8PaymentGatewayCountryValidator" type="Magento\Payment\Gateway\Validator\CountryValidator">
+        <arguments>
+            <argument name="config" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config8</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg8PaymentGatewayValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="country" xsi:type="string">Pledg8PaymentGatewayCountryValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg9PaymentGatewayCountryValidator" type="Magento\Payment\Gateway\Validator\CountryValidator">
+        <arguments>
+            <argument name="config" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config9</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg9PaymentGatewayValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="country" xsi:type="string">Pledg9PaymentGatewayCountryValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg10PaymentGatewayCountryValidator" type="Magento\Payment\Gateway\Validator\CountryValidator">
+        <arguments>
+            <argument name="config" xsi:type="object">Pledg\PledgPaymentGateway\Gateway\Config\Config10</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Pledg10PaymentGatewayValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="country" xsi:type="string">Pledg10PaymentGatewayCountryValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PledgLoggerHandler" type="Magento\Framework\Logger\Handler\Base">
+        <arguments>
+            <argument name="fileName" xsi:type="string">/var/log/pledg_payment_gateway.log</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="PledgLogger" type="Monolog\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">pledg</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">PledgLoggerHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Pledg\PledgPaymentGateway\Controller\Checkout\Cancel">
+        <arguments>
+            <argument name="logger" xsi:type="object">PledgLogger</argument>
+        </arguments>
+    </type>
+    <type name="Pledg\PledgPaymentGateway\Controller\Checkout\Ipn">
+        <arguments>
+            <argument name="logger" xsi:type="object">PledgLogger</argument>
+        </arguments>
+    </type>
+    <type name="Pledg\PledgPaymentGateway\Controller\Checkout\Pay">
+        <arguments>
+            <argument name="logger" xsi:type="object">PledgLogger</argument>
+        </arguments>
+    </type>
+</config>

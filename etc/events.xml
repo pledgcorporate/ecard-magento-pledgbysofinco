@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="payment_method_is_active">
+        <observer name="pledg_payment_availability" instance="Pledg\PledgPaymentGateway\Observer\PaymentMethodAvailable" />
+    </event>
+    <event name="controller_action_predispatch_adminhtml_system_config_save">
+        <observer name="pledg_section_payment_saved" instance="Pledg\PledgPaymentGateway\Observer\PaymentConfigObserver"/>
+    </event>
+</config>
