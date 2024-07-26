@@ -246,8 +246,9 @@ class Pay extends Template
         return array_merge(
             [
                 'plugin' => sprintf(
-                    'magento%s-pledg-plugin%s',
+                    'magento%s-%s-plugin%s',
                     $this->configHelper->getMagentoVersion(),
+                    'pledgbysofinco',
                     $this->configHelper->getModuleVersion()
                 ),
                 'products' => $products,
