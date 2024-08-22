@@ -252,7 +252,6 @@ class Pay extends Template
                     $this->configHelper->getModuleVersion()
                 ),
                 'products' => $products,
-                'departure_date' => date('Y-m-d'),
             ],
             $customer ? $this->getCustomerData($order, $customer) : []
         );
