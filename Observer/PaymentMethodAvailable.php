@@ -120,7 +120,8 @@ class PaymentMethodAvailable implements ObserverInterface
                     $billingAddress = $this->addressRepository->getById($billingAddressId);
                     $companyNameAttribute = $billingAddress->getCompany();
                 } catch (\Exception $e) {
-                    die($e->getMessage());
+                    $checkResult->setData('is_available', false);
+                    return;
                 }
             }
 
