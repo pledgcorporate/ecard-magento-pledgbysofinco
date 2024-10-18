@@ -1,4 +1,6 @@
 # Changelog
+## 1.2.10 - 18/10/2024
+- fix checkout shipping for customer without any default address (#64)
 ## 1.2.9 - 22/08/2024
 - delete "departure_date" field from metadata
 - add CHANGELOG.md to the build repos
