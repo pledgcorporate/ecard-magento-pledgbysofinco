@@ -345,6 +345,9 @@ define(['jquery', 'pledgLib'], function($, pledgLib){
 
                 if (this.readyState === 4 && this.status === 200) {
                     let jsonResponse = JSON.parse(this.responseText);
+
+                    console.log('update widget content...');
+                    console.log(jsonResponse.html);
                     pledgWidget.innerHTML = jsonResponse.html;
 
                     initiateWidget();
@@ -353,6 +356,7 @@ define(['jquery', 'pledgLib'], function($, pledgLib){
 
             }
 
+            console.log('get ', url.toString());
             xhttpCart.open('GET', url.toString());
             xhttpCart.send();
         },

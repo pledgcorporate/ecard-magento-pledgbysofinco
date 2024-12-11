@@ -10,6 +10,9 @@ use Magento\Customer\Model\Session;
 use Magento\Payment\Model\Method\Adapter as MethodAdapter;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\Locale\Resolver as LocaleResolver;
+use Magento\Checkout\Model\Session as CheckoutSession;
+
+use Psr\Log\LoggerInterface;
 
 use Pledg\PledgPaymentGateway\Model\Ui\ConfigProvider;
 use Pledg\PledgPaymentGateway\Helper\Config as ConfigHelper;
@@ -49,6 +52,16 @@ class Widget extends AbstractHelper
     protected $_localeResolver;
 
     /**
+     * @var CheckoutSession
+     */
+    protected $_checkoutSession;
+
+    /**
+     * @var LoggerInterface
+     */
+    protected $_logger;
+
+    /**
      * Widget constructor.  
      * @param Context $context
      * @param PaymentHelper $paymentHelper
@@ -57,6 +70,8 @@ class Widget extends AbstractHelper
      * @param FormatterHelper $formatterHelper
      * @param StoreManagerInterface $storeManager
      * @param LocaleResolver $localeResolver
+     * @param CheckoutSession $checkoutSession
+     * @param LoggerInterface $logger
      */
     public function __construct(
         Context $context,
@@ -65,7 +80,9 @@ class Widget extends AbstractHelper
         ConfigHelper $configHelper,
         FormatterHelper $formatterHelper,
         StoreManagerInterface $storeManager,
-        LocaleResolver $localeResolver
+        LocaleResolver $localeResolver,
+        CheckoutSession $checkoutSession,
+        LoggerInterface $logger,
     ) {
         parent::__construct($context);
         $this->_paymentHelper = $paymentHelper;
@@ -74,6 +91,8 @@ class Widget extends AbstractHelper
         $this->_formatterHelper = $formatterHelper;
         $this->_storeManager = $storeManager;
         $this->_localeResolver = $localeResolver;
+        $this->_checkoutSession = $checkoutSession;
+        $this->_logger = $logger;
     }
 
     /**
@@ -176,6 +195,48 @@ class Widget extends AbstractHelper
         return true;
     }
 
+    public function logTotals(
+        $quote
+    ) {
+        $colTotals = $quote->getTotals();
+
+        $this->_logger->info('***');
+        $this->_logger->info('***    TOTALS:    ***');
+        $this->_logger->info('***');
+
+        foreach ($colTotals as $key => $totalItem) {
+            $this->_logger->info('code[ ' . $totalItem->getCode() . ' ]' . "\t\t\t\t" . ' => amount[ ' . $totalItem->getValue() . ' ]');
+        }
+
+        return;
+
+        // $totals = [
+        //     'chQuote' => [
+        //         'before' => [],
+        //         'after' => []
+        //     ],
+        //     'quote' => [
+        //         'before' => [],
+        //         'after' => []
+        //     ]
+        // ];
+
+        // $tmpTotals = [
+        //     'grand_total' => $chQuote->getGrandTotalInclTax(),
+        //     'sub_total' => $chQuote->getSubtotalInclTax(),
+        //     'tax_amount' => $chQuote->getTaxAmount(),
+        //     'shipping_amount' => $chQuote->getShippingAmount(),
+        //     'discount_amount' => $chQuote->getDiscountAmount(),
+        //     'totals' => $chQuote->getTotals()
+        // ];
+        // $totals['chQuote']['before'] = $tmpTotals;
+
+        // $this->_logger->info('widgetHelper $chQuote->collectTotals()');
+        // $chQuote->collectTotals()->save();
+
+
+    }
+
     /**
      * @param array  $payload
      * @param string $secretKey
@@ -199,12 +260,41 @@ class Widget extends AbstractHelper
 
             case 'cart':
             default:
-                $cart = $objectManager->get('\Magento\Checkout\Model\Cart');
-                $quote = $cart->getQuote();
-                $quote->collectTotals();
-                $price = $quote->getGrandTotal();
+                $chQuote = $this->_checkoutSession->getQuote();
+
+                $this->_logger->info('widgetHelper 111 $chQuote:');
+                $this->logTotals($chQuote);
+
+                $rates = $chQuote->getShippingAddress()->getShippingRatesCollection();
+                $this->_logger->info('widgetHelper 111 $rates:');
+                foreach ($rates as $rate)
+                {
+                    $out = '[' . $rate->getPrice() . '||'.  $rate->getMethod() . '||'. $rate->getMethodTitle() . ']';
+                    $this->_logger->info($out);
+                }
+
+                $chQuote->setTotalsCollectedFlag(false);
+                $chQuote->getShippingAddress()->unsetData('cached_items_all');
+                $chQuote->getShippingAddress()->unsetData('cached_items_nominal');
+                $chQuote->getShippingAddress()->unsetData('cached_items_nonnominal');
+                $chQuote->collectTotals()->save();
+
+                $this->_logger->info('widgetHelper 222 $chQuote:');
+                $this->logTotals($chQuote);
+
+                $rates = $chQuote->getShippingAddress()->getShippingRatesCollection();
+                $this->_logger->info('widgetHelper 111 $rates:');
+                foreach ($rates as $rate)
+                {
+                    $out = '[' . $rate->getPrice() . '||'.  $rate->getMethod() . '||'. $rate->getMethodTitle() . ']';
+                    $this->_logger->info($out);
+                }
+
+                $price = $chQuote->getBaseGrandTotal();
                 break;
         }
+
+        $this->_logger->info('widgetHelper price: ' . $price);
 
         $deferredMerchants = [];
         $installmentMerchants = [];
