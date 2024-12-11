@@ -7,7 +7,7 @@ use Magento\Framework\App\Helper\Context;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Payment\Helper\Data as PaymentHelper;
 use Magento\Customer\Model\Session;
-use Magento\Payment\Model\Method\Adapter\Interceptor as MethodInterceptor;
+use Magento\Payment\Model\Method\Adapter as MethodAdapter;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\Locale\Resolver as LocaleResolver;
 
@@ -110,7 +110,7 @@ class Widget extends AbstractHelper
 
     private function shouldBeDisplayed(
         float $price,
-        MethodInterceptor $paymentMethod,
+        MethodAdapter $paymentMethod,
         Session $customerSession
     ): bool
     {
@@ -128,7 +128,7 @@ class Widget extends AbstractHelper
      * We check min and max amount
      */
     private function amountIsInPriceRange(
-        MethodInterceptor $method,
+        MethodAdapter $method,
         float $price
     ): bool
     {
@@ -153,7 +153,7 @@ class Widget extends AbstractHelper
      * We check that the customer is member of an allowed group
      */
     private function customerIsEnabled(
-        MethodInterceptor $method,
+        MethodAdapter $method,
         Session $customerSession
     ): bool
     {
