@@ -4,8 +4,7 @@ namespace Pledg\PledgPaymentGateway\Helper\PaymentSchedule;
 
 use Magento\Framework\App\Helper\Context;
 use Magento\Framework\App\Helper\AbstractHelper;
-use Magento\Payment\Model\Method\Adapter\Interceptor as MethodInterceptor;
-
+use Magento\Payment\Model\Method\Adapter as MethodAdapter;
 use Psr\Log\LoggerInterface;
 
 use Pledg\PledgPaymentGateway\Helper\Api\PaymentSchedule\PaymentSchedule as ApiPaymentScheduleHelper;
@@ -49,7 +48,7 @@ class PaymentSchedule extends AbstractHelper
 
     public function retrievePaymentSchedule(
         string $countryCode,
-        MethodInterceptor $gateway,
+        MethodAdapter $gateway,
         float $price
     ): array
     {
