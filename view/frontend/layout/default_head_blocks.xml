@@ -1,0 +1,6 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Pledg_PledgPaymentGateway::css/pledg.css"/>
+        <css src="Pledg_PledgPaymentGateway::fontawesome/css/all.css"/>
+    </head>
+</page>
