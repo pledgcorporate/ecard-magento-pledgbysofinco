@@ -210,11 +210,11 @@ class Widget extends AbstractHelper
                 break;
 
             case 'cart':
-                default:
-                    $quote = $this->_checkoutSession->getQuote();
-                    $quote->collectTotals();
-                    $price = $quote->getGrandTotal();
-                    break;
+            default:
+                $quote = $this->_checkoutSession->getQuote();
+                $quote->collectTotals();
+                $price = $quote->getGrandTotal();
+                break;
         }
 
         $deferredMerchants = [];
