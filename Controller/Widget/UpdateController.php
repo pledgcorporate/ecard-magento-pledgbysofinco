@@ -71,11 +71,14 @@ class UpdateController extends \Magento\Framework\App\Action\Action
     public function execute()
     {
         $widgetType = $this->_httpRequest->getParam('widgetType', 'cart');
+
+        // for now, the widget is actually activated for product page only
+        $widgetType = 'product';
+
         $activeMerchant = $this->_httpRequest->getParam('activeMerchant', 'merchantIcon0');
 
         $widgetOptions = $this->_helperWidget->getWidgetOptions($this->_customerSession, $widgetType, $activeMerchant);
 
-        /** @var \Magento\Framework\View\Layout $layout */
         $block = $this->_view->getLayout()->createBlock('Pledg\PledgPaymentGateway\Block\Product\Widget');
         $block->setTemplate('Pledg_PledgPaymentGateway::widget/block.phtml');
         $block->setOptions($widgetOptions);

@@ -44,21 +44,12 @@ class Widget extends Template
         StoreManagerInterface $storeManager,
         WidgetHelper $helperWidget,
         Session $customerSession,
-        array $data = [],
+        array $data = []
     ) {
         $this->_helperWidget = $helperWidget;
         $this->_customerSession = $customerSession;
         $this->_storeManager = $storeManager;
         parent::__construct($context, $data);
-    }
-
-    /**
-    * @return null|string
-    */
-    private function getLang() {
-        $locale = $this->_helperWidget->getLocale();
-        $splittedLocale = explode('_', $locale);
-        return $splittedLocale[0];
     }
 
     /**
@@ -68,6 +59,10 @@ class Widget extends Template
         $ret = 'cart';
 
         $widgetType = strtolower($this->_data['widgetType']);
+
+        // for now, the widget is actually activated for product page only
+        $widgetType = 'product';
+
         if (in_array($widgetType, ['cart', 'product'])) {
             $ret = $widgetType;
         }

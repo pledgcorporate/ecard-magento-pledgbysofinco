@@ -198,6 +198,9 @@ class Widget extends AbstractHelper
         $ret = [];
         $price = 0;
 
+        // for now, the widget is actually activated for product page only
+        $widgetType = 'product';
+
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 
         switch ($widgetType) {
@@ -207,11 +210,11 @@ class Widget extends AbstractHelper
                 break;
 
             case 'cart':
-            default:
-                $quote = $this->_checkoutSession->getQuote();
-                $quote->collectTotals();
-                $price = $quote->getGrandTotal();
-                break;
+                default:
+                    $quote = $this->_checkoutSession->getQuote();
+                    $quote->collectTotals();
+                    $price = $quote->getGrandTotal();
+                    break;
         }
 
         $deferredMerchants = [];
@@ -326,6 +329,9 @@ class Widget extends AbstractHelper
         string $activeMerchant = 'merchantIcon0'
     ) {
         $ret = [];
+
+        // for now, the widget is actually activated for product page only
+        $widgetType = 'product';
 
         $widgetActivation = false;
         $widgetActivationConfigPath = null;

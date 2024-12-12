@@ -61,7 +61,6 @@ class PaymentSchedule extends AbstractHelper
         ];
 
         try {
-            // $client = new OPERATOR_CAMEL_NAMEApiClient();
             return $this->_apiClientHelper->post($url, $options);
         } catch (\Exception $e) {
             $logMsg = sprintf(
