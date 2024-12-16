@@ -1,0 +1,105 @@
+<!-- begin vendor/pledg/module-pledg-payment-gateway/view/frontend/templates/widget/popup.phtml -->
+
+<script type="text/javascript">
+
+    require(['jquery', 'pledgWidget'], function($, pledgWidget) {
+
+        hidePopup = () => {
+            pledgWidget.hidePopup();
+        };
+
+    });
+
+</script>
+
+<div id="pledg-popup-widget" class="pledg-popup font-operator-pledgbysofinco">
+    <span id="pledg-popup-close" onclick="hidePopup()" onKeyPress="javascript:void(0)">&times;</span>
+    <div class="pledg-popup-header">
+        <div class="pledg-widget-nav">
+            <ul>
+                <?php
+                    foreach ($blockOptions['merchants'] as $key => $merchant) {
+                        $activation = '';
+                        $merchantIconClass = 'merchantIcon' . $key;
+                        if ($blockOptions['activeMerchant'] == $merchantIconClass) {
+                            $activation = ' active';
+                        }
+                ?>
+                    <li
+                        class="merchantIcon merchantIcon<?php echo $key; ?><?php echo $activation; ?>"
+                        data-caption="<?php echo htmlspecialchars($merchant['caption'], ENT_QUOTES, 'UTF-8'); ?>"
+                        data-schedule="<?php echo htmlspecialchars($merchant['schedule'], ENT_QUOTES, 'UTF-8'); ?>"
+                        data-type="<?php echo $merchant['type']; ?>"
+                        data-fees="<?php echo $merchant['fees']; ?>"
+                        data-currency="<?php echo $merchant['options']['currency']; ?>"
+                        data-currency-sign="<?php echo $merchant['options']['currencySign']; ?>"
+                        data-key="<?php echo $key; ?>"
+                        onclick="switchMerchant(this)"
+                        onKeyPress="javascript:void(0)"
+                    >
+                        <?php echo $merchant['icon']; ?>
+                    </li>
+
+                <?php
+                    }
+                ?>
+            </ul>
+            <div id="pledg-popup-line" class="pledg-line"></div>
+        </div>
+    </div>
+    <div class="pledg-popup-content">
+        <div id="pledg-popup-caption">
+            <h2><?php echo __('Buy now.'); ?></h2>
+            <p>
+                <span id="pledg-bnpl-caption"></span>
+                <span id="pledg-fees-caption">
+                    <?php
+                        $arrMerchants = $blockOptions['merchants'];
+                        if (count($arrMerchants) > 0
+                            && array_key_exists('fees', $arrMerchants[0])
+                        ) {
+                            if ($arrMerchants[0]['fees'] == 0) {
+                                echo __('Free of charge.');
+                            }
+                        }
+                    ?>
+            </span>
+            </p>
+        </div>
+        <div id="pledg-popup-container">
+            <div id="pledg-popup-howto" class="pledg-popup-content-div hidden-mobile">
+                <div class="pledg-popup-step">
+                    <div class="pledg-popup-bullet">1</div>
+                    <p><?php echo __('Validate your basket'); ?></p>
+                </div>
+                <div class="pledg-popup-between-step"></div>
+                <div class="pledg-popup-step">
+                    <div class="pledg-popup-bullet">2</div>
+                    <p></p>
+                </div>
+                <div class="pledg-popup-between-step"></div>
+                <div class="pledg-popup-step">
+                    <div class="pledg-popup-bullet">3</div>
+                    <p><?php echo __('Fill in your card number'); ?></p>
+                </div>
+                <div class="pledg-popup-between-step"></div>
+                <div class="pledg-popup-step">
+                    <div class="pledg-popup-bullet">4</div>
+                    <p></p>
+                </div>
+            </div>
+            <div id="pledg-popup-separation" class="hidden-mobile"></div>
+            <div id="pledg-popup-payment-schedule" class="pledg-popup-content-div"></div>
+        </div>
+    </div>
+    <div class="pledg-popup-footer">
+        <p class="legal-mentions-pledgbysofinco">
+        <?php echo __('A loan commits you and must be repaid. Check your ability to repay before committing yourself.'); ?>
+        <?php echo sprintf(__('*OFFER SUBJECT TO CONDITIONS. Reserved for individuals, subject to acceptance by our partner %s.'), 'PledgBySofinco'); ?>
+        <?php echo __('Valid only with CB, Visa and Mastercard bank cards whose expiration date is not earlier than the last agreed upon date.'); ?>
+        <?php echo __('SOFINCO est une marque de CA Consumer Finance, prêteur, SA au capital de 554 482 422 €, 1 rue Victor Basch - CS 70001 - 91068 MASSY Cedex, 542 097 522 RCS Evry.'); ?>
+        </p>
+    </div>
+</div>
+
+<!-- end vendor/pledg/module-pledg-payment-gateway/view/frontend/templates/widget/popup.phtml -->

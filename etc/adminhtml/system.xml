@@ -17,6 +17,11 @@
                     <label>Company custom field name</label>
                     <config_path>pledg_gateway/payment/company_custom_field_name</config_path>
                 </field>
+                <field id="enable_widget_in_product_page" translate="label" type="select" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable widget in product page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>pledg_gateway/payment/enable_widget_in_product_page</config_path>
+                </field>
             </group>
             <group id="pledg_gateway_1" translate="label" sortOrder="201" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>PledgBySofinco Payment Gateway 1</label>

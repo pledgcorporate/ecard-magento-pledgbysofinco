@@ -2,30 +2,61 @@
 
 namespace Pledg\PledgPaymentGateway\Helper;
 
+use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Store\Model\ScopeInterface;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 use Magento\Framework\App\ProductMetadataInterface;
 use Magento\Sales\Model\Order;
+use Magento\Store\Model\StoreManagerInterface;
 
 class Config extends AbstractHelper
 {
-    const MODULE_VERSION = '1.2.10';
+    const MODULE_VERSION = '1.2.11';
     const ORDER_REFERENCE_PREFIX = 'order_';
+
+    const PLEDG_STAGING_BACK_URI = 'https://staging.back.ecard.pledg.co/api';
+    const PLEDG_PROD_BACK_URI = 'https://back.ecard.pledg.co/api';
+    
+    const PLEDG_PAYMENT_TYPES = [
+        'installment' => 'installment',
+        'deferred' => 'deferred',
+    ];
+
+    const PAYMENT_SCHEDULE_ENDPOINT = '/users/me/merchants/<merchant_uid>/simulate_payment_schedule';
 
     /**
      * @var ProductMetadataInterface
      */
-    private $productMetadata;
+    private $_productMetadata;
+
+    /**
+     * @var ScopeConfigInterface
+     */
+    private $_scopeConfig;
+
+    /**
+     * @var StoreManagerInterface
+     */
+    private $_storeManager;
 
     /**
      * @param Context                  $context
      * @param ProductMetadataInterface $productMetadata
+     * @param StoreManagerInterface $storeManager
+     * @param ScopeConfigInterface $scopeConfig
      */
-    public function __construct(Context $context, ProductMetadataInterface $productMetadata)
-    {
+    public function __construct(
+        Context $context,
+        ProductMetadataInterface $productMetadata,
+        StoreManagerInterface $storeManager,
+        ScopeConfigInterface $scopeConfig
+    ) {
         parent::__construct($context);
 
-        $this->productMetadata = $productMetadata;
+        $this->_productMetadata = $productMetadata;
+        $this->_storeManager = $storeManager;
+        $this->_scopeConfig = $scopeConfig;
     }
 
     /**
@@ -33,7 +64,7 @@ class Config extends AbstractHelper
      */
     public function getMagentoVersion(): string
     {
-        return $this->productMetadata->getVersion();
+        return $this->_productMetadata->getVersion();
     }
 
     /**
@@ -42,6 +73,20 @@ class Config extends AbstractHelper
     public function getModuleVersion(): string
     {
         return self::MODULE_VERSION;
+    }
+
+    public function getCurrentStoreCountryCode()
+    {
+        $store = $this->_storeManager->getStore();
+        $websiteId = $store->getWebsiteId();
+
+        $countryCode = $this->_scopeConfig->getValue(
+            'general/country/default',
+            ScopeInterface::SCOPE_WEBSITE,
+            $websiteId
+        );
+
+        return $countryCode;
     }
 
     /**
