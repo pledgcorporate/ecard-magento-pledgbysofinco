@@ -15,6 +15,16 @@ class Info extends BaseInfo
      */
     protected $_template = 'Pledg_PledgPaymentGateway::info/default.phtml';
 
+
+    /**
+     * @param string $dashboardUrl
+     * @return array
+     */
+    private function getDashboardPurchaseLink(string $dashboardUrl): string
+    {
+        return '<a href="' . $dashboardUrl . '" target="_blank" rel="noopener noreferrer">Purchase link</a>';
+    }
+
     /**
      * @return array
      */
@@ -31,8 +41,17 @@ class Info extends BaseInfo
             $modeLabel = __('Mode Back');
         }
 
+        $pledgDashboardPurchaseLink = '';
+        if (
+            array_key_exists('pledg_dashboard_purchase_url', $orderPaymentInfo)
+            && !empty($orderPaymentInfo['pledg_dashboard_purchase_url'])
+        ) {
+            $pledgDashboardPurchaseLink = $this->getDashboardPurchaseLink($orderPaymentInfo['pledg_dashboard_purchase_url']);
+        }
+
         return [
             __('Transaction ID')->getText() => $orderPaymentInfo['transaction_id'] ?? $unknownLabel,
+            __('View in PledgBySofinco dashboard')->getText() => $pledgDashboardPurchaseLink ?? $unknownLabel,
             __('PledgBySofinco Mode')->getText() => $modeLabel,
             __('PledgBySofinco Status')->getText() => $orderPaymentInfo['pledg_status'] ?? $unknownLabel,
         ];

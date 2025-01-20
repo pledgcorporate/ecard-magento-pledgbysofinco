@@ -15,7 +15,7 @@ use Magento\Sales\Model\Order;
 use Magento\Sales\Model\Order\Email\Sender\OrderSender;
 use Magento\Sales\Model\OrderFactory;
 use Magento\Store\Model\ScopeInterface;
-use Pledg\PledgPaymentGateway\Helper\Config;
+use Pledg\PledgPaymentGateway\Helper\Config as ConfigHelper;
 use Pledg\PledgPaymentGateway\Helper\Crypto;
 use Pledg\PledgPaymentGateway\Model\Ui\ConfigProvider;
 use Psr\Log\LoggerInterface;
@@ -59,6 +59,11 @@ class Ipn extends Action
     private $cryptoHelper;
 
     /**
+     * @var ConfigHelper
+     */
+    private $configHelper;
+
+    /**
      * @var ScopeConfigInterface
      */
     private $scopeConfig;
@@ -78,6 +83,7 @@ class Ipn extends Action
      * @param FormKey              $formKey
      * @param OrderFactory         $orderFactory
      * @param Crypto               $cryptoHelper
+     * @param ConfigHelper         $configHelper
      * @param ScopeConfigInterface $scopeConfig
      * @param OrderSender          $orderSender
      * @param LoggerInterface      $logger
@@ -87,6 +93,7 @@ class Ipn extends Action
         FormKey $formKey,
         OrderFactory $orderFactory,
         Crypto $cryptoHelper,
+        ConfigHelper $configHelper,
         ScopeConfigInterface $scopeConfig,
         OrderSender $orderSender,
         LoggerInterface $logger
@@ -95,6 +102,7 @@ class Ipn extends Action
 
         $this->orderFactory = $orderFactory;
         $this->cryptoHelper = $cryptoHelper;
+        $this->configHelper = $configHelper;
         $this->scopeConfig = $scopeConfig;
         $this->orderSender = $orderSender;
         $this->logger = $logger;
@@ -292,10 +300,42 @@ class Ipn extends Action
     private function addPaymentInformation(Order $order, string $transactionId, string $mode, string $pledgStatus): void
     {
         $paymentData = $order->getPayment()->getAdditionalInformation();
+
         $paymentData['transaction_id'] = $transactionId;
         $paymentData['pledg_mode'] = $mode;
         $paymentData['pledg_status'] = $pledgStatus;
+        $paymentData['pledg_dashboard_purchase_url'] = $this->getDashboardPurchaseUrl($order, $transactionId);
+
         $order->getPayment()->setAdditionalInformation($paymentData)->save();
+    }
+
+    /**
+     * @param Order  $order
+     * @param string $transactionId
+     */
+    private function getDashboardPurchaseUrl(Order $order, string $transactionId): string
+    {
+        /*
+         * We need a dashboard link so the merchant can go to the purchase page in our dashboard from magento aadmin.
+         * This link depends on
+         * - environment (staging/prod), given by the 'core_config_data' table
+         * - purchase_uid (pur_XXXXXXXX), given by configHelper->getMerchantIdForOrder()
+         * - merchant_uid (mer_YYYYYYYY), given by $transactionId
+         * We store it at this step because environment value is set in the pledg module general config (not in each merchant config).
+         */
+        $merchantUid = $this->configHelper->getMerchantIdForOrder($order);
+        $isStagingModeActivated = $this->scopeConfig->getValue('pledg_gateway/payment/staging', ScopeInterface::SCOPE_STORE);
+
+        $dashboardUrl = $isStagingModeActivated
+            ? $this->configHelper::PLEDG_STAGING_DASHBOARD_URI
+            : $this->configHelper::PLEDG_PROD_DASHBOARD_URI
+        ;
+
+        $dashboardUrl .= $this->configHelper::PURCHASE_ENDPOINT;
+        $dashboardUrl = str_replace('<merchant_uid>', $merchantUid, $dashboardUrl);
+        $dashboardUrl = str_replace('<purchase_uid>', $transactionId, $dashboardUrl);
+
+        return $dashboardUrl;
     }
 
     /**
@@ -319,7 +359,7 @@ class Ipn extends Action
      */
     private function getOrder(array $params): Order
     {
-        $orderIncrementId = str_replace(Config::ORDER_REFERENCE_PREFIX, '', $params['reference']);
+        $orderIncrementId = str_replace($this->configHelper::ORDER_REFERENCE_PREFIX, '', $params['reference']);
         $order = $this->orderFactory->create();
         $order->loadByIncrementId($orderIncrementId);
 

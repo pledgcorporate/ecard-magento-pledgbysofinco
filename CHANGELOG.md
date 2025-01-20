@@ -1,4 +1,8 @@
 # Changelog
+## 1.2.12 - 20/01/2025
+- dashboard link for purchase in admin orders list
+## 1.2.11 - 16/12/2024
+- feat widget magento
 ## 1.2.10 - 18/10/2024
 - fix checkout shipping for customer without any default address (#64)
 ## 1.2.9 - 22/08/2024

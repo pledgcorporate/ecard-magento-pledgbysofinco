@@ -12,7 +12,11 @@ $specificInfo = $block->getAdminSpecificInformation();
             <tr>
                 <th><?= $block->escapeHtml($label) ?>:</th>
                 <td>
-                    <?= /* @noEscape */ nl2br($block->escapeHtml(implode("\n", $block->getValueAsArray($value, true)))) ?>
+                    <?php if ($label === __('View in PledgBySofinco dashboard')->getText()) { ?>
+                        <?= $value ?>
+                    <?php } else { ?>
+                        <?= /* @noEscape */ nl2br($block->escapeHtml(implode("\n", $block->getValueAsArray($value, true)))) ?>
+                    <?php } ?>
                 </td>
             </tr>
         <?php endforeach; ?>

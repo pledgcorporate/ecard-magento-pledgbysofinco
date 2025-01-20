@@ -12,18 +12,22 @@ use Magento\Store\Model\StoreManagerInterface;
 
 class Config extends AbstractHelper
 {
-    const MODULE_VERSION = '1.2.11';
+    const MODULE_VERSION = '1.2.12';
     const ORDER_REFERENCE_PREFIX = 'order_';
 
     const PLEDG_STAGING_BACK_URI = 'https://staging.back.ecard.pledg.co/api';
     const PLEDG_PROD_BACK_URI = 'https://back.ecard.pledg.co/api';
-    
+
+    const PLEDG_STAGING_DASHBOARD_URI = 'https://staging.dashboard.ecard.pledg.co/dashboard';
+    const PLEDG_PROD_DASHBOARD_URI = 'https://dashboard.ecard.pledg.co/dashboard';
+
     const PLEDG_PAYMENT_TYPES = [
         'installment' => 'installment',
         'deferred' => 'deferred',
     ];
 
     const PAYMENT_SCHEDULE_ENDPOINT = '/users/me/merchants/<merchant_uid>/simulate_payment_schedule';
+    const PURCHASE_ENDPOINT = '/merchants/<merchant_uid>/purchases/<purchase_uid>';
 
     /**
      * @var ProductMetadataInterface
