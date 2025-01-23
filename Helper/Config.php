@@ -12,7 +12,7 @@ use Magento\Store\Model\StoreManagerInterface;
 
 class Config extends AbstractHelper
 {
-    const MODULE_VERSION = '1.2.12';
+    const MODULE_VERSION = '1.2.13';
     const ORDER_REFERENCE_PREFIX = 'order_';
 
     const PLEDG_STAGING_BACK_URI = 'https://staging.back.ecard.pledg.co/api';

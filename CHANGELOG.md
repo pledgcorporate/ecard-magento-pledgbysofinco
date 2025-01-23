@@ -1,4 +1,6 @@
 # Changelog
+## 1.2.13 - 23/01/2025
+- delete empty links
 ## 1.2.12 - 20/01/2025
 - dashboard link for purchase in admin orders list
 ## 1.2.11 - 16/12/2024
